@@ -15,6 +15,7 @@ def fahrenheit_to_celsius(fahrenheit):
     """Convert Fahrenheit to Celsius."""
     return 5 / 9 * (fahrenheit - 32)
 
+
 def main():
     """Run the temperature conversion program."""
     print(MENU)
