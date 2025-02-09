@@ -6,7 +6,11 @@ def main():
         if len(password) < min_length:
             break
         print("Password too short!")
-    print("*"*len(password))
+    the_password(password)
+
+
+def the_password(password):
+    print("*" * len(password))
 
 
 def get_password():
