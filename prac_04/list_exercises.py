@@ -16,5 +16,17 @@ def main():
     print("The largest number is", max(numbers))
     print("The average of the numbers is", sum(numbers) / len(numbers))
 
+
+"""Check if a user is authorized."""
+usernames = ['jimbo', 'giltson98', 'derekf', 'WhatSup', 'NicolEye', 'swei45',
+                 'BaseInterpreterInterface', 'BaseStdIn', 'Command', 'ExecState',
+                 'InteractiveConsole', 'InterpreterInterface', 'StartServer', 'bob']
+
+username = input("Enter your username: ")  # Get user input
+
+if username in usernames:  # Check if username is in the list
+        print("Access granted")
+else:
+        print("Access denied")
 main()
 
