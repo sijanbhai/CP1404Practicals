@@ -7,8 +7,9 @@ FILENAME = "subject_data.txt"
 
 
 def main():
+    """Load data and display subject details."""
     data = load_data()
-    print(data)  # Display the processed data as a list of lists
+    display_subject_details(data)  # Call the new function to display details
 
 
 def load_data():
@@ -21,6 +22,12 @@ def load_data():
             parts[2] = int(parts[2])  # Convert number of students to an integer
             data.append(parts)  # Add the processed line (list) to the main list
     return data  # Return the list of lists
+
+
+def display_subject_details(data):
+    """Display subject details in a readable format."""
+    for subject, lecturer, students in data:
+        print(f"{subject} is taught by {lecturer} and has {students} students")
 
 
 main()
