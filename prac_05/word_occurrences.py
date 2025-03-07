@@ -20,6 +20,6 @@ sorted_words = sorted(word_counts.keys())
 # Find the longest word length for alignment
 max_length = max(len(word) for word in sorted_words)
 
-# Print the word counts
+# Print the word counts with aligned numbers
 for word in sorted_words:
-    print(f"{word:{max_length}} : {word_counts[word]}")
+    print(f"{word:{max_length}} : {word_counts[word]:>2}")
