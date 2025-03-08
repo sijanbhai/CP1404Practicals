@@ -13,15 +13,15 @@ EMAIL_TO_NAME = {}
 def get_name_from_email(email):
     """Extracts a guessed name from an email address."""
     name_part = email.split("@")[0]  # Get the part before '@'
-    name_parts = name_part.split(".")  # Split by '.' or '_'
+    name_parts = name_part.replace(".", " ").replace("_", " ").split()  # Handle different separators
     guessed_name = " ".join(name_parts).title()  # Capitalize each word
     return guessed_name
 
 
-# Get user input and store emails and names
+# Keep asking for emails until the user enters a blank one
 while True:
     email = input("Enter your email (or press Enter to finish): ").strip()
-    if not email:
+    if email == "":
         break  # Stop if the user enters nothing
 
     # Suggest a name based on the email
