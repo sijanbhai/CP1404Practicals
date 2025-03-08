@@ -1,6 +1,8 @@
 """
 CP1404/CP5632 Practical
 User Email and Name Storage Program
+Estimated time: 15 minutes
+Actual time: 25 minutes
 This program collects users' emails and extracts their names to store them in a dictionary.
 Emails serve as unique keys, while names are the values.
 """
