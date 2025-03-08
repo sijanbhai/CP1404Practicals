@@ -14,7 +14,6 @@ def get_name_from_email(email):
     name_parts = name_part.replace(".", " ").replace("_", " ").split()  # Handle different separators
     return " ".join(name_parts).title()  # Capitalize each word and return
 
-
 def main():
     """Main function to get emails and store names."""
     while True:
@@ -24,10 +23,13 @@ def main():
 
         # Suggest a name based on the email
         guessed_name = get_name_from_email(email)
-        confirmation = input(f"Is your name {guessed_name}? (Y/n) ").strip().lower()
+        confirmation = input(f"Is your name {guessed_name}? [Y/n] ").strip().lower()
 
-        # Allow user to correct the name
-        name = guessed_name if confirmation in ("", "y", "yes") else input("Enter your name: ").title()
+        # Allow user to correct the name only if they explicitly say "n" or "no"
+        if confirmation == "n" or confirmation == "no":
+            name = input("Enter your name: ").title()
+        else:
+            name = guessed_name  # Default to guessed name if Enter is pressed or "y" is entered
 
         EMAIL_TO_NAME[email] = name  # Store in dictionary
 
@@ -35,7 +37,6 @@ def main():
     print("\nStored emails and names:")
     for email, name in EMAIL_TO_NAME.items():
         print(f"{name} ({email})")
-
 
 # Run the program
 if __name__ == "__main__":
