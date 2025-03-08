@@ -8,32 +8,35 @@ Emails serve as unique keys, while names are the values.
 # Dictionary to store email-to-name mapping
 EMAIL_TO_NAME = {}
 
-
-# Function to extract a name from an email
 def get_name_from_email(email):
     """Extracts a guessed name from an email address."""
     name_part = email.split("@")[0]  # Get the part before '@'
     name_parts = name_part.replace(".", " ").replace("_", " ").split()  # Handle different separators
-    guessed_name = " ".join(name_parts).title()  # Capitalize each word
-    return guessed_name
+    return " ".join(name_parts).title()  # Capitalize each word and return
 
 
-# Keep asking for emails until the user enters a blank one
-while True:
-    email = input("Enter your email (or press Enter to finish): ").strip()
-    if email == "":
-        break  # Stop if the user enters nothing
+def main():
+    """Main function to get emails and store names."""
+    while True:
+        email = input("Enter your email (or press Enter to finish): ").strip()
+        if email == "":
+            break  # Stop if the user enters nothing
 
-    # Suggest a name based on the email
-    guessed_name = get_name_from_email(email)
-    confirmation = input(f"Is your name {guessed_name}? (Y/n) ").strip().lower()
+        # Suggest a name based on the email
+        guessed_name = get_name_from_email(email)
+        confirmation = input(f"Is your name {guessed_name}? (Y/n) ").strip().lower()
 
-    # Allow user to correct the name
-    name = guessed_name if confirmation in ("", "y", "yes") else input("Enter your name: ").title()
+        # Allow user to correct the name
+        name = guessed_name if confirmation in ("", "y", "yes") else input("Enter your name: ").title()
 
-    EMAIL_TO_NAME[email] = name  # Store in dictionary
+        EMAIL_TO_NAME[email] = name  # Store in dictionary
 
-# Print stored emails and names
-print("\nStored emails and names:")
-for email, name in EMAIL_TO_NAME.items():
-    print(f"{name} ({email})")
+    # Print stored emails and names
+    print("\nStored emails and names:")
+    for email, name in EMAIL_TO_NAME.items():
+        print(f"{name} ({email})")
+
+
+# Run the program
+if __name__ == "__main__":
+    main()
